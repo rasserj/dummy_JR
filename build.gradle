@@ -28,7 +28,7 @@ version = '0.1'
 // (donc dans aucun package) pour éviter les conflits de noms avec
 // des librairies, ou simplement pour mieux ranger les classes.
 
-mainClassName = "mdedit.MDEdit"
+mainClassName = "dummy.DummyMain"
 
 // Je ne sais pas trop ce que ça ajoute, mais maven c'est un peu
 // le parent de gradle (on peut dire que gradle hérite de maven).
