@@ -1,0 +1,81 @@
+// Liste des plugins utilisés.
+//
+// Chaque plugin rajoute des fonctionnalités/tâches à gradle
+// pour ce projet.
+//
+// Le premier indique qu'on va compiler du java.
+//
+// Le deuxième indique qu'on veut développer une application
+// destinée à être déployée sur des postes sans compilateur java
+// ou sans gradle. Donc elle va rajouter des tâches gradle pour
+// générer une archive à installer par exemple.
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+// Définition de quelques variables.
+//
+// Celle-ci définit la version de Java utilisée (1.7 = Java 7).
+
+sourceCompatibility = 1.7
+
+// Celle-ci donne le numéro de version que tu veux donner au programme.
+
+version = '0.1'
+
+// Celle-là indique le nom de la classe principale avec ses packages.
+// PS : déconseillé de mettre une classe dans le package par défaut
+// (donc dans aucun package) pour éviter les conflits de noms avec
+// des librairies, ou simplement pour mieux ranger les classes.
+
+mainClassName = "mdedit.MDEdit"
+
+// Je ne sais pas trop ce que ça ajoute, mais maven c'est un peu
+// le parent de gradle (on peut dire que gradle hérite de maven).
+// Donc le dépôt mavenCentral permet sans doute de définir des
+// règles de base pour gradle.
+
+repositories {
+	mavenCentral()
+}
+
+// Là tu rajoutes les dépendances du projet (= librairies nécessaires).
+// Par exemple, j'ai mis h2 (gestionnaire de base de données, c'est un
+// driver JDBC/SQL open source permettant de gérer des bases de données
+// en local dans un fichier) et JUnit (qui permet de faire des tests
+// unitaires), que tu n'utiliseras pas forcément (même si ce serait bien ^^),
+// mais c'est là de base donc bon...
+//
+// Si tu regardes la ligne pour inclure la librairie "h2", tu verras que
+// la syntaxe est un peu bizarre : 'com.h2database:h2:1.4.185'. J'explique.
+//
+// Gradle (ou même Maven d'ailleurs) offre un moyen de gérer les dépendances
+// sans avoir besoin de télécharger le ".jar" de la librairie. Ils centralisent
+// les librairies "répandues" dans un dépôt accessible via le net.
+// De cette façon, t'as pas besoin de t'occuper de télécharger les dépendances
+// et ça allège le git, qui n'a pas besoin de sauvegarder l'ensemble de la
+// librairie, mais juste cette petite ligne de texte à la place.
+//
+// La syntaxe, c'est 'NOM_DU_PACKAGE : NOM_DE_LA_LIBRAIRIE : VERSION'.
+// Pour trouver cette ligne pour une librairie java (un tant soit peu répandue)
+// tu peux simplement chercher sur le net "gradle dependency LIBRARIE_EN_QUESTION".
+//
+// Là par exemple, j'ai tapé "gradle dependency h2".
+//
+// Tu tombes sur la page 'http://mvnrepository.com/artifact/com.h2database/h2'
+// où se trouvent les différentes versions de la librairie.
+// J'ai pris la plus récente, quand tu cliques dessus tu peux entre autres :
+// - télécharger l'archive .jar de la librairie (méthode "classique")
+// - voir la dépendance "Gradle" en sélectionnant le bon onglet parmi les
+//   propositions. Cette possibilité te donnera directement la fameuse
+//   chaine que j'ai mise ci-dessous (si la version n'a pas changé depuis ^^).
+//
+// Si, plus tard, tu veux utiliser une autre version de "h2" (par exemple si
+// une nouvelle est sortie, ou si tu veux en utiliser une plus ancienne)
+// il te suffit de regarder sur ce même site, choisir la version que tu veux,
+// récupérer la nouvelle ligne pour gradle et la mettre à la place de l'ancienne.
+
+dependencies {
+	compile 'com.h2database:h2:1.4.185'
+    testCompile 'junit:junit:4.+'
+}
