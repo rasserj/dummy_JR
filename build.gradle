@@ -36,7 +36,7 @@ mainClassName = "dummy.DummyMain"
 // règles de base pour gradle.
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 // Là tu rajoutes les dépendances du projet (= librairies nécessaires).
@@ -76,6 +76,7 @@ repositories {
 // récupérer la nouvelle ligne pour gradle et la mettre à la place de l'ancienne.
 
 dependencies {
-	compile 'com.h2database:h2:1.4.185'
+        compile 'com.h2database:h2:1.4.186'
+        compile 'com.itextpdf:itextpdf:5.5.5'
     testCompile 'junit:junit:4.+'
 }
