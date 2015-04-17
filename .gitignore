@@ -1,4 +1,5 @@
 .gradle
 .nb-gradle
 build
-/.nb-gradle/private/
+*~
+*.swp
