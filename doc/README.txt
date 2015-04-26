@@ -55,7 +55,9 @@ pk	un ID d'immo(int - BD uniquement)
 
 B) Un compte :
 	un ID de compte(int - BD uniquement),
+	un numéro de compte(int),
 	un ID de compte d'amortissement(int - BD uniquement),
+	un numéro de compte d'amortissement,
 	un nom de commune ou d'organisation (type "sierentz" ou communauté de 		communes de xxx"...)(txt)
 	
 	
