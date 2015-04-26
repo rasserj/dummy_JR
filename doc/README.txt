@@ -44,17 +44,18 @@ Pour le moment je n'ai que pensé à vAchat = sommes des amortissements, à fair
 Nouveauté !!! Il y a une nouvelle notion de subvention qui entre en jeu : idem qu'une immobilisation, au niveau des interactions compte/amortissement etc.. sauf qu'il faut séparer les immos des subv au moments des récapitulatifs
 
 A) Une immobilisation : 
+pk	un ID d'immo(int - BD uniquement)
 	un type/commentaire (txt),
-pk	un numéro d'inventaire alphanumérique + ("-", "." ou "/"),
+ 	un numéro d'inventaire alphanumérique + ("-", "." ou "/"),
         un indicateur subvention/immobilisation (type à choisir)
-pk	un ID de compte(int)
+ 	un ID de compte(int)
 
 	NOTES : - la durée d'amortissement n'a pas besoin d'être retracée : on la 			  retrouve en sommant les amortissements correspondant à l'immo.
 		- Idem pour la valeur brute de l'immo.
 
 B) Un compte :
-	un ID de compte(int),
-	un ID de compte d'amortissement(int),
+	un ID de compte(int - BD uniquement),
+	un ID de compte d'amortissement(int - BD uniquement),
 	un nom de commune ou d'organisation (type "sierentz" ou communauté de 		communes de xxx"...)(txt)
 	
 	
