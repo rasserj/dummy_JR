@@ -2,6 +2,16 @@
 
 ------------------------------ But du logiciel : --------------------------------
 
+entrées de l'utilisateur au moment de créer une immobilisation (ou subvention) : 
+	- d'un type/commentaire (txt),
+	- un nom de commune (txt),
+	- un numéro d'inventaire (alphanum + "-", "." ou "/"),
+	- un indicateur subvention/immobilisation (type à choisir),
+	- une valeur brute d'achat (euros),
+	- une durée d'amortissement (années),
+	- un numéro de compte(qui répertoriera l'immo)
+	- un numéro de compte d'amortissement
+
 1) répertorier les différentes immobilisations dans différents comptes et suivre leur amortissement(compte d'amortissement)
 
 2) Calculer automatiquement le montant amorti dû chaque année, par "compte" (et donc par commune). (= division euclidienne vAchat par durée(en année) d'amortissement, le reste de la division euclidienne s'ajoute sur le montant de la dernière année d'amortissement) 
@@ -31,32 +41,28 @@ Pour le moment je n'ai que pensé à vAchat = sommes des amortissements, à fair
 
 ----------------------------- Différents "objets" à considérer ------------------
 
+Nouveauté !!! Il y a une nouvelle notion de subvention qui entre en jeu : idem qu'une immobilisation, au niveau des interactions compte/amortissement etc.. sauf qu'il faut séparer les immos des subv au moments des récapitulatifs
 
 A) Une immobilisation : 
-	définie par un type (txt),
-(clé?)	un nom de commune ou d'organisation (type "sierentz" ou communauté de 		communes de xxx"...),
-clé	un numéro d'inventaire alphanumérique + ("-", "." ou "/")),
-	un coût total (euros),
-	une durée d'amortissement (années),
+	définie par un type/commentaire (txt),
+ 	un nom de commune ou d'organisation (type "sierentz" ou communauté de 		communes de xxx"...)(txt),
+pk	un numéro d'inventaire alphanumérique + ("-", "." ou "/"),
+pk      un indicateur subvention/immobilisation (type à choisir)
 	un montant d'amortissement (euros, sans centimes sauf dernière année)
-	une référence unique vers un compte, 
-	une référence unique vers un compte d'amortissement (cf plus loin)
+	un numéro de compte(int),
+	un numéro de compte d'amortissement 
 
-B) Un compte : 
-clé	défini par un numéro de compte (max 10 chiffres), 
-clé	un nom de commune ou d'organisation (type "sierentz" ou communauté de 		communes de xxx"...),
-	un ensemble d'immobilisations,
-	un total en valeur brute depuis l'existence du compte(total par année aussi 		ou alors on fait une table avec 3 clés que seraient année et numéro de 		compte et commune (dernière option peut-être plus facile à gérer lors du 		passage d'une année sur l'autre, peut-être plus dégueulasse aussi ?)?),
+	NOTES : - la durée d'amortissement n'a pas besoin d'être retracée : on la 			  retrouve en sommant les amortissements correspondant à l'immo.
+		- Idem pour la valeur brute de l'immo.
 	
-C) Un compte d'amortissement :
-clé	défini par un numéro de compte (max 10 chiffres),
-clé	un nom de commune ou d'organisation (type "sierentz" ou communauté de 		communes de xxx"...),
-	problématique identique à "compte" en ce qui concerne les années, 
-	un ensemble d'immobilisations (= montant amorti pour l'année en cours),
-	un total en valeur amortie pour l'année concernée.
+B) Un Amortissement : 
+foreign key ?	un numéro d'inventaire alphanumérique + ("-", "." ou "/"),	
+foreign key ?	un indicateur subvention/immobilisation (type à choisir),
+		un montant amorti précalculé mais modifiable(Euros),
+pk		une année(date)
 
 
-Note : Les immobilisations répertoriées par un compte on toute le même compte d'amortissement, et la réciproque est vraie.
+Note : Les immobilisations répertoriées par un compte ont toutes le même compte d'amortissement, et la réciproque est vraie.
 
 ------------------------------------ contraintes ----------------------------------
 
