@@ -1,5 +1,4 @@
-.gradle
-.nb-gradle
-build
 *~
 *.swp
+dist
+packages
