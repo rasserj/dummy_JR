@@ -44,20 +44,23 @@ Pour le moment je n'ai que pensé à vAchat = sommes des amortissements, à fair
 Nouveauté !!! Il y a une nouvelle notion de subvention qui entre en jeu : idem qu'une immobilisation, au niveau des interactions compte/amortissement etc.. sauf qu'il faut séparer les immos des subv au moments des récapitulatifs
 
 A) Une immobilisation : 
-	définie par un type/commentaire (txt),
- 	un nom de commune ou d'organisation (type "sierentz" ou communauté de 		communes de xxx"...)(txt),
+	un type/commentaire (txt),
 pk	un numéro d'inventaire alphanumérique + ("-", "." ou "/"),
-pk      un indicateur subvention/immobilisation (type à choisir)
-	un montant d'amortissement (euros, sans centimes sauf dernière année)
-	un numéro de compte(int),
-	un numéro de compte d'amortissement 
+        un indicateur subvention/immobilisation (type à choisir)
+pk	un ID de compte(int)
 
 	NOTES : - la durée d'amortissement n'a pas besoin d'être retracée : on la 			  retrouve en sommant les amortissements correspondant à l'immo.
 		- Idem pour la valeur brute de l'immo.
+
+B) Un compte :
+	un ID de compte(int),
+	un ID de compte d'amortissement(int),
+	un nom de commune ou d'organisation (type "sierentz" ou communauté de 		communes de xxx"...)(txt)
+	
 	
 B) Un Amortissement : 
-foreign key ?	un numéro d'inventaire alphanumérique + ("-", "." ou "/"),	
-foreign key ?	un indicateur subvention/immobilisation (type à choisir),
+pk-fk		un numéro d'inventaire alphanumérique + ("-", "." ou "/"),
+pk-fk		un ID de compte
 		un montant amorti précalculé mais modifiable(Euros),
 pk		une année(date)
 
