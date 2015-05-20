@@ -1,0 +1,70 @@
+<h1>Saisie d'une immobilisation</h1>
+<form id="saisie-form">
+    <fieldset>
+        <legend>Informations sur le compte</legend>
+        <fieldset id="groupe-utiliser-cpte">
+            <legend>
+                <label for="form-imm-cpte-utiliser">Utiliser un compte existant</label>
+                <input type="radio" name="creer-compte" value="form-imm-cpte-utiliser" id="form-imm-cpte-utiliser" checked>
+            </legend>
+            <div class="form-line">
+                <select id="form-imm-cpte">
+                    <!-- Options rajoutées dynamiquement -->
+                </select>
+            </div>
+        </fieldset>
+        <fieldset id="groupe-creer-cpte">
+            <legend>
+                <label for="form-imm-cpte-creer">Créer un nouveau compte</label>
+                <input type="radio" name="creer-compte" value="form-imm-cpte-creer" id="form-imm-cpte-creer">
+            </legend>
+            <div class="form-line">
+                <label class="aligned" for="form-imm-num-cpte">N&deg; compte :</label>
+                <input name="num-compte" id="form-imm-num-cpte" disabled>
+            </div>
+            <div class="form-line">
+                <label class="aligned" for="form-imm-num-cpte-amort">N&deg; compte d'amortissement :</label>
+                <input name="num-compte-amort" id="form-imm-num-cpte-amort" disabled>
+            </div>
+            <div class="form-line">
+                <label class="aligned" for="form-imm-commune">Commune :</label>
+                <input name="commune" id="form-imm-commune" disabled>
+            </div>
+        </fieldset>
+    </fieldset>
+    
+    <fieldset>
+        <legend>Informations sur <span id="type-immo-nom">l'immobilisation</span></legend>
+        <div class="form-line">
+            <label class="aligned" for="form-imm-type">Type :</label>
+            <select name="type" id="form-imm-type">
+                <option value="immo" selected>Immobilisation</option>
+                <option value="subv">Subvention</option>
+            </select>
+        </div>
+        <div class="form-line">
+            <label class="aligned" for="form-imm-comm">Commentaire :</label>
+            <input name="comm" id="form-imm-comm">
+        </div>
+        <div class="form-line">
+            <label class="aligned" for="form-imm-num">N&deg; inventaire :</label>
+            <input name="num" id="form-imm-num">
+        </div>
+        <div class="form-line">
+            <label class="aligned" for="form-imm-valeur">Valeur brute :</label>
+            <input name="valeur" id="form-imm-valeur"> EUR
+        </div>
+        <div class="form-line">
+            <label class="aligned" for="form-imm-duree">Durée d'amortissement :</label>
+            <input name="duree" id="form-imm-duree"> année(s)
+        </div>
+        <div class="form-line">
+            <label class="aligned" for="form-imm-depart">Année du 1<sup>er</sup> paiement :</label>
+            <input name="depart" id="formm-imm-depart">
+        </div>
+    </fieldset>
+    
+    <div class="centered">
+        <input class="app-button" type="submit" value="Valider">
+    </div>
+</form>

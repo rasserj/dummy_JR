@@ -1,0 +1,137 @@
+/* Généraux */
+
+body {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    font-family: sans-serif;
+}
+
+/* Style du menu principal */
+
+nav {
+    height: 40px;
+}
+
+nav ul {
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+}
+
+nav li {
+    margin-left: 2px;
+    float: left;
+}
+
+nav ul li a {
+    display: block;
+    float: left;
+    width: 150px;
+    background-color: #EDEDED;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    padding: 5px;
+    border: 2px solid;
+    border-color: #DCDCDC #696969 #696969 #DCDCDC;
+}
+
+nav ul li a:hover {
+    background-color: #D3D3D3;
+    border-color: #696969 #DCDCDC #DCDCDC #696969;
+}
+
+/* Styles généraux */
+
+.app-container {
+    margin: 5px;
+    padding: 5px;
+}
+
+.app-button, .app-button-red, .app-tabs li a {
+    background-color: #DDDDFD;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    padding: 5px;
+    font-size: 100%;
+    border: 2px solid;
+    border-color: #DCDCDC #696969 #696969 #DCDCDC;
+}
+
+.app-button:hover, .app-tabs li a:hover, .app-tabs .app-tabs-selected  {
+    background-color: #C3C3E3;
+    border-color: #696969 #DCDCDC #DCDCDC #696969;
+    cursor: pointer;
+}
+
+.app-button-red {
+    background-color: #FDDDDD;
+    border-color: #ECCCCC #696969 #696969 #ECCCCC;
+}
+
+.app-button-red:hover {
+    background-color: #E3C3C3;
+    border-color: #696969 #ECCCCC #ECCCCC #696969;
+}
+
+.app-button {
+    width: 80%;
+}
+
+.app-tabs {
+    height: 34px;
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+}
+
+.app-tabs li {
+    float: left;
+}
+
+.app-tabs li a {
+    display: block;
+    float: left;
+    width: 138px;
+}
+
+.form-line {
+    height: 32px;
+}
+
+input:disabled {
+    background-color: #DDDDDD;
+}
+
+.centered {
+    text-align: center;
+}
+
+fieldset {
+    margin-bottom: 20px;
+}
+
+#saisie-form .aligned {
+    display: inline-block;
+    width: 240px;
+    text-align: right;
+}
+
+select {
+    font-family: sans-serif;
+    font-size: 100%;
+}
+
+#form-imm-cpte {
+    width: 100%;
+}
+
+/* JQuery UI : activer le scroll des 'autocomplete' */
+
+.ui-autocomplete {
+    max-height: 100px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
